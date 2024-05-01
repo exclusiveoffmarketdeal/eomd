@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chat Bot</title>
+  </head>
+  <body>
+    <center>
+      <h1>Welcome to ChatBot!</h1>
+      <p>Thanks.</p>
+    </center>
+
+    <style type="text/css">
+      .embeddedServiceHelpButton .helpButton .uiButton {
+        overflow: initial;
+        background-color: #005290;
+        font-family: 'Arial', sans-serif;
+        font-size: 1.25em;
+      }
+      .embeddedServiceLiveAgentStateChatRichItem {
+        background: none !important;
+      }
+      .embeddedServiceHelpButton .helpButton .uiButton:focus {
+        outline: 1px solid #005290;
+      }
+      .helpButtonLabel {
+        overflow: initial !important;
+      }
+      .message {
+        overflow: initial;
+        background-color: inherit;
+        border-style: none;
+        color: inherit;
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+    <script type="text/javascript">
+      function initEmbeddedMessaging() {
+        try {
+          embeddedservice_bootstrap.settings.language = 'en_US' // For example, enter 'en' or 'en-US'
+
+          embeddedservice_bootstrap.init(
+            '00D7j0000004cGl',
+            'Messaging_for_Web_Chats_Deployment',
+            'https://vinebrookhomes--sit.sandbox.my.site.com/ESWMessagingforWebChat1695910797821',
+            {
+              scrt2URL: 'https://vinebrookhomes--sit.sandbox.my.salesforce-scrt.com',
+            }
+          )
+        } catch (err) {
+          console.error('Error loading Embedded Messaging: ', err)
+        }
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://vinebrookhomes--sit.sandbox.my.site.com/ESWMessagingforWebChat1695910797821/assets/js/bootstrap.min.js"
+      onload="initEmbeddedMessaging()"
+    ></script>
+  </body>
+</html>
