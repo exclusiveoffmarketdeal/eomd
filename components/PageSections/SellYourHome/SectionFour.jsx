@@ -12,7 +12,7 @@ const SectionFour = () => {
             Kansas City, Little Rock, Memphis, Milwaukee, Montgomery, Omaha, Pensacola, Pittsburgh, Portales, Raeford,
             St. Louis, Triad and the surrounding metro areas.
           </p>
-          <LinkBtn address={'https://vinebrookhomes.my.salesforce-sites.com/sellyour_home'} newTab={'yes'}>
+          <LinkBtn address={'https://exclusive.my.salesforce-sites.com/sellyour_home'} newTab={'yes'}>
             PROPERTY SALE INQUIRY FORM
           </LinkBtn>
         </BasicContainer>

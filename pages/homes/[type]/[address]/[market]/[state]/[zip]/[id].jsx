@@ -252,7 +252,7 @@ const Homes = () => {
               <span className='w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 flex flex-col sm:flex-row justify-between mx-auto mb-12'>
                 <a
                   className='bg-vb_green-400 hover:bg-vb_green-500 text-center text-white font-bold text-xl mb-4 sm:mb-0 py-2 px-4 rounded-lg transition-all duration-150 ease-in-out'
-                  href='https://www.vinebrookhomes.com/files/resident-selection-criteria.pdf'
+                  href='https://www.exclusive.com/files/resident-selection-criteria.pdf'
                   target='_blank'
                 >
                   Rental Criteria

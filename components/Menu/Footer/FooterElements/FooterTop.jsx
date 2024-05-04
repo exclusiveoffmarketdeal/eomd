@@ -30,7 +30,7 @@ const FooterTop = () => {
               </p>
             </span>
             <span className='xl:col-span-1 hidden xl:flex flex-row justify-between px-16 2xl:px-24'>
-              <Link href={'https://www.facebook.com/vinebrookhomes'} target={'_blank'}>
+              <Link href={'https://www.facebook.com/exclusive'} target={'_blank'}>
                 {Facebook ? (
                   <Image
                     src={Facebook}
@@ -42,7 +42,7 @@ const FooterTop = () => {
                   />
                 ) : null}
               </Link>
-              <Link href={'https://www.instagram.com/vinebrookhomes/'} target={'_blank'}>
+              <Link href={'https://www.instagram.com/exclusive/'} target={'_blank'}>
                 {Instagram ? (
                   <Image
                     src={Instagram}
@@ -56,7 +56,7 @@ const FooterTop = () => {
               </Link>
               <Link
                 href={
-                  'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGQs8Bkpy21nQAAAYh9uEPAi-0N0lpNMMnLCTSwuiPb7WdB2KNi08kZZqbo4IdTBK7mJpbUIlPTFNl5Q_N3lzkYIxm7-gYTbTGXea_55PJLFIYyqWoDNAy4gDhP_CHzriKEDfU=&original_referer=https://www.vinebrookhomes.com/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fvinebrook-homes-llc'
+                  'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGQs8Bkpy21nQAAAYh9uEPAi-0N0lpNMMnLCTSwuiPb7WdB2KNi08kZZqbo4IdTBK7mJpbUIlPTFNl5Q_N3lzkYIxm7-gYTbTGXea_55PJLFIYyqWoDNAy4gDhP_CHzriKEDfU=&original_referer=https://www.exclusive.com/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fvinebrook-homes-llc'
                 }
                 target={'_blank'}
               >
@@ -71,7 +71,7 @@ const FooterTop = () => {
                   />
                 ) : null}
               </Link>
-              <Link href={'https://twitter.com/VinebrookHomes'} target={'_blank'}>
+              <Link href={'https://twitter.com/exclusive'} target={'_blank'}>
                 {Twitter ? (
                   <Image
                     src={Twitter}
@@ -101,7 +101,7 @@ const FooterTop = () => {
               </div>
             </span>
             <span className='col-span-1 xl:hidden flex flex-row justify-between w-64 md:w-1/2 mx-auto'>
-              <Link href={'https://www.facebook.com/vinebrookhomes'} target={'_blank'}>
+              <Link href={'https://www.facebook.com/exclusive'} target={'_blank'}>
                 {Facebook ? (
                   <Image
                     src={Facebook}
@@ -113,7 +113,7 @@ const FooterTop = () => {
                   />
                 ) : null}
               </Link>
-              <Link href={'https://www.instagram.com/vinebrookhomes/'} target={'_blank'}>
+              <Link href={'https://www.instagram.com/exclusive/'} target={'_blank'}>
                 {Instagram ? (
                   <Image
                     src={Instagram}
@@ -127,7 +127,7 @@ const FooterTop = () => {
               </Link>
               <Link
                 href={
-                  'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGQs8Bkpy21nQAAAYh9uEPAi-0N0lpNMMnLCTSwuiPb7WdB2KNi08kZZqbo4IdTBK7mJpbUIlPTFNl5Q_N3lzkYIxm7-gYTbTGXea_55PJLFIYyqWoDNAy4gDhP_CHzriKEDfU=&original_referer=https://www.vinebrookhomes.com/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fvinebrook-homes-llc'
+                  'https://www.linkedin.com/authwall?trk=gf&trkInfo=AQGQs8Bkpy21nQAAAYh9uEPAi-0N0lpNMMnLCTSwuiPb7WdB2KNi08kZZqbo4IdTBK7mJpbUIlPTFNl5Q_N3lzkYIxm7-gYTbTGXea_55PJLFIYyqWoDNAy4gDhP_CHzriKEDfU=&original_referer=https://www.exclusive.com/&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fcompany%2Fvinebrook-homes-llc'
                 }
                 target={'_blank'}
               >
@@ -142,7 +142,7 @@ const FooterTop = () => {
                   />
                 ) : null}
               </Link>
-              <Link href={'https://twitter.com/VinebrookHomes'} target={'_blank'}>
+              <Link href={'https://twitter.com/exclusive'} target={'_blank'}>
                 {Twitter ? (
                   <Image
                     src={Twitter}

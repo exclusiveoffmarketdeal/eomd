@@ -14,10 +14,10 @@ const SectionTwo = () => {
               this page that is no longer valuable or if you have a resource that is not listed here that you think
               would be valuable, please contact us at:{' '}
               <a
-                href='mailto:customerservice@vinebrookhomes.com'
+                href='mailto:customerservice@exclusive.com'
                 className='text-white hover:text-vb_green-400 break-words underline transition-all duration-150 ease-in-out'
               >
-                customerservice@vinebrookhomes.com
+                customerservice@exclusive.com
               </a>
               .
             </p>

@@ -16,7 +16,7 @@ const SectionOne = () => {
               LOOKING TO SELL?
             </h1>
             <span className='mt-8 sm:mt-10 md:mt-12 lg:mt-14 2xl:mt-16'>
-              <LinkBtn address={'https://vinebrookhomes.my.salesforce-sites.com/sellyour_home'} newTab={'yes'}>
+              <LinkBtn address={'https://exclusive.my.salesforce-sites.com/sellyour_home'} newTab={'yes'}>
                 REQUEST DETAILS
               </LinkBtn>
             </span>

@@ -43,10 +43,10 @@ const AboutVB = () => {
               <p className='font-semibold mt-2'>Megan Grabos</p>
               <p className='lg:text-sm xl:text-base'>Vice President of Communications | Exclusive Off Market Deals</p>
               <Link
-                href={'mailto:megan.grabos@vinebrookhomes.com'}
+                href={'mailto:megan.grabos@exclusive.com'}
                 className=' text-vb_green-400 break-all hover:text-vb_green-300 lg:text-xs xl:text-base font-bold underline transition duration-150 ease-in-out'
               >
-                megan.grabos@vinebrookhomes.com
+                megan.grabos@exclusive.com
               </Link>
             </div>
             <button
@@ -103,10 +103,10 @@ const AboutVB = () => {
               <p className='font-semibold mt-2'>Megan Grabos</p>
               <p>Vice President of Communications | Exclusive Off Market Deals</p>
               <Link
-                href={'mailto:megan.grabos@vinebrookhomes.com'}
+                href={'mailto:megan.grabos@exclusive.com'}
                 className=' text-vb_green-400 break-all hover:text-vb_green-300 font-bold underline transition duration-150 ease-in-out'
               >
-                megan.grabos@vinebrookhomes.com
+                megan.grabos@exclusive.com
               </Link>
             </div>
           </BasicContainer>

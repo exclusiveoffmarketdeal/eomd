@@ -36,7 +36,7 @@ const QuickLinks = () => {
                   <li className='bg-vb_green-500 hover:bg-vb_green-400 my-3 rounded-md shadow-md shadow-vb_gray-200 hover:shadow-lg hover:shadow-vb_gray-300 cursor-pointer transition-all duration-300 ease-in-out'>
                     <Link
                       className='w-full h-full block py-2'
-                      href={'https://www.vinebrookhomes.com/service-request'}
+                      href={'https://www.exclusive.com/service-request'}
                       target='_blank'
                     >
                       SERVICE REQUEST
@@ -68,7 +68,7 @@ const QuickLinks = () => {
                 <h2 className='text-vb_blue-800 text-5xl font-black'>FOLLOW US!</h2>
                 <ul className='flex flex-row justify-between mt-8 4xl:mt-16 px-6'>
                   <li>
-                    <Link href={'https://www.facebook.com/vinebrookhomes'} target='_blank'>
+                    <Link href={'https://www.facebook.com/exclusive'} target='_blank'>
                       <Image
                         src={fbIcon}
                         alt={'fbIcon'}
@@ -80,7 +80,7 @@ const QuickLinks = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={'https://www.instagram.com/vinebrookhomes/'} target='_blank'>
+                    <Link href={'https://www.instagram.com/exclusive/'} target='_blank'>
                       <Image
                         src={inIcon}
                         alt={'inIcon'}
@@ -93,7 +93,7 @@ const QuickLinks = () => {
                   </li>
                   <li>
                     <Link
-                      href={'https://twitter.com/i/flow/login?redirect_after_login=%2FVinebrookHomes'}
+                      href={'https://twitter.com/i/flow/login?redirect_after_login=%2Fexclusive'}
                       target='_blank'
                     >
                       <Image
@@ -107,7 +107,7 @@ const QuickLinks = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link href={'https://www.youtube.com/@vinebrookhomes/videos'} target='_blank'>
+                    <Link href={'https://www.youtube.com/@exclusive/videos'} target='_blank'>
                       <Image
                         src={ytIcon}
                         alt={'ytIcon'}

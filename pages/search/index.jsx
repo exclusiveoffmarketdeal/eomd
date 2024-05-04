@@ -47,9 +47,9 @@ const FindHomes = () => {
   const [availableStatus, setAvailableStatus] = useState({})
   const [map, setMap] = useState(null)
   const [defaultCenter, setDefaultCenter] = useState(null)
-  const [centerLat, setCenterLat] = useState(39.738539565203624)
-  const [centerLng, setCenterLng] = useState(-86.22431045532225)
-  const [zoom, setZoom] = useState(4)
+  const [centerLat, setCenterLat] = useState(47.651230)
+  const [centerLng, setCenterLng] = useState(-122.2908099)
+  const [zoom, setZoom] = useState(7)
   const [locs, setLocs] = useState([])
   const [toggle, setToggle] = useState(false)
   const [propData, setPropData] = useState([])
@@ -103,13 +103,14 @@ const FindHomes = () => {
   const handleChangeType = (event) => {
     setType(event.target.value)
   }
+  */
   const handleChangeMinPrice = (event) => {
     setMinPrice(event.target.value)
   }
   const handleChangeMaxPrice = (event) => {
     setMaxPrice(event.target.value)
   }
-  */
+
   const handleChangeBeds = (event) => {
     setBeds(event.target.value)
   }
@@ -415,7 +416,7 @@ const FindHomes = () => {
                 <div className='w-full relative rounded-xl'>
                   <MultiRangeSlider
                     min={0}
-                    max={3000}
+                    max={900000}
                     onChange={({ min, max }) => {
                       setMinPrice(min)
                       setMaxPrice(max)

@@ -49,7 +49,7 @@ const SectionThree = ({ serviceRequestHeading, serviceRequestBody }) => {
             <p className='text-md sm:text-xl md:text-2xl text-center text-white mb-4 px-6 md:px-0 2xl:px-12'>
               Request service or check on an existing request for NON-EMERGENCY issues.
             </p>
-            <LinkBtn address={'https://www.vinebrookhomes.com/service-request'}>START NEW / CHECK REQUEST</LinkBtn>
+            <LinkBtn address={'https://www.exclusive.com/service-request'}>START NEW / CHECK REQUEST</LinkBtn>
           </div>
         </div>
       </section>

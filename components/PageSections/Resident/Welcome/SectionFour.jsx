@@ -218,9 +218,9 @@ const SectionFour = () => {
                   member of the VineBrook team, please email{' '}
                   <a
                     className='underline text-vb_blue-400 hover:text-vb_blue-500'
-                    href='mailto:customerservice@vinebrookhomes.com'
+                    href='mailto:customerservice@exclusive.com'
                   >
-                    customerservice@vinebrookhomes.com
+                    customerservice@exclusive.com
                   </a>{' '}
                   or call
                   <a className='underline text-vb_blue-400 hover:text-vb_blue-500' href='tel:1-855-513-5678'>

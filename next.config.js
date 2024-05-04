@@ -3,12 +3,6 @@ module.exports = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'vbstrapidevstorage.blob.core.windows.net',
-        port: '',
-        pathname: '/strapi-uploads/assets/**',
-      },
-      {
         protocol: 'http',
         hostname: 'localhost',
         port: '',
@@ -16,9 +10,7 @@ module.exports = {
       },
       {
         protocol: 'https',
-        hostname: 'cdn.rentcafe.com',
-        port: '',
-        pathname: '/dmslivecafe/**',
+        hostname: 'prodigyav.com',
       }
     ]
   },

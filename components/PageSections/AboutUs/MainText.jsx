@@ -33,7 +33,7 @@ const MainText = () => {
           </div>
           <span className='w-fit mx-auto'>
             <LinkBtn
-              address={'https://www.facebook.com/vinebrookhomes'}
+              address={'https://www.facebook.com/exclusive'}
               newTab={'yes'}
               bgColor={'bg-vb_green-500'}
               bgColorHover={'hover:bg-vb_green-400'}
@@ -74,7 +74,7 @@ const MainText = () => {
         </div>
         <span className='w-fit mx-auto mt-16'>
           <LinkBtn
-            address={'https://www.facebook.com/vinebrookhomes'}
+            address={'https://www.facebook.com/exclusive'}
             newTab={'yes'}
             bgColor={'bg-vb_green-500'}
             bgColorHover={'hover:bg-vb_green-400'}

@@ -162,7 +162,7 @@ const SectionThree = () => {
                 </p>
                 <div className='mt-8'>
                   <LinkBtn
-                    address={'https://www.vinebrookhomes.com/vendor/create-account'}
+                    address={'https://www.exclusive.com/vendor/create-account'}
                     textSize={'text-2xl'}
                     fontWeight={'bold'}
                     bgColor={'bg-vb_green-500'}

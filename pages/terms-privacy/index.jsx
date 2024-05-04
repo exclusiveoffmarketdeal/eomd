@@ -20,8 +20,8 @@ const TermsPrivacy = () => {
           <p className='text-xl text-left leading-7'>
             Exclusive Off Market DealsProperty Management Company, LLC ("Exclusive Off Market Deals") is pleased to
             welcome you to{' '}
-            <a href='https://www.vinebrookhomes.com' target='_blank'>
-              www.vinebrookhomes.com
+            <a href='https://www.exclusive.com' target='_blank'>
+              www.exclusive.com
             </a>{' '}
             (the "Site"). You must accept and agree to be bound by the following Terms of Service. The Terms of Service
             are a legal contract between you and Exclusive Off Market Dealsrelated to identification of a home for you,
@@ -123,7 +123,7 @@ const TermsPrivacy = () => {
           <h2 className='text-3xl font-normal tracking-wide mb-5 mt-5'>Privacy Policy</h2>
           <p className='text-xl text-left leading-7'>
             This Privacy Policy governs the manner in which Exclusive Off Market Dealscollects, uses, maintains, and
-            discloses information collected from users (each, a "User") of the www.vinebrookhomes.com website ("Site").
+            discloses information collected from users (each, a "User") of the www.exclusive.com website ("Site").
             This privacy policy applies to the Site and all products and services offered by Exclusive Off Market Deals.
           </p>
 
@@ -246,10 +246,10 @@ const TermsPrivacy = () => {
             </a>{' '}
             or Email{' '}
             <a
-              href='mailto:customerservice@vinebrookhomes.com'
+              href='mailto:customerservice@exclusive.com'
               className='text-vb_green-500 hover:text-vb_green-400 break-all sm:break-normal underline transition-all duration-150 ease-in-out'
             >
-              customerservice@vinebrookhomes.com
+              customerservice@exclusive.com
             </a>
           </p>
 

@@ -47,9 +47,9 @@ const FindHomes = () => {
   const [availableStatus, setAvailableStatus] = useState({})
   const [map, setMap] = useState(null)
   const [defaultCenter, setDefaultCenter] = useState(null)
-  const [centerLat, setCenterLat] = useState(39.738539565203624)
-  const [centerLng, setCenterLng] = useState(-86.22431045532225)
-  const [zoom, setZoom] = useState(4)
+  const [centerLat, setCenterLat] = useState(47.651230)
+  const [centerLng, setCenterLng] = useState(-122.2908099)
+  const [zoom, setZoom] = useState(7)
   const [locs, setLocs] = useState([])
   const [toggle, setToggle] = useState(false)
   const [propData, setPropData] = useState([])
@@ -399,7 +399,7 @@ const FindHomes = () => {
                 <div className='w-full relative rounded-xl'>
                   <MultiRangeSlider
                     min={0}
-                    max={3000}
+                    max={900000}
                     onChange={({ min, max }) => {
                       setMinPrice(min)
                       setMaxPrice(max)
@@ -756,6 +756,36 @@ const FindHomes = () => {
                           </div>
                         </div>
                       </div>
+                      <div className='flex flex-wrap justify-between mx-20 my-5'>
+                        {isLoading ? (
+                          <p>Loading</p>
+                        ) : (
+                          <>
+                            <button
+                              className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
+                                page == 1 && propData.length <= 10
+                                  ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
+                                  : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
+                              }`}
+                              disabled={page == 1 && propData.length <= 10}
+                              onClick={() => (setPage(page - 1), prevPage(page - 1))}
+                            >
+                              Prev
+                            </button>
+                            <button
+                              className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
+                                totalPage <= page || propData.length < 10
+                                  ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
+                                  : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
+                              }`}
+                              disabled={totalPage <= page || propData.length < 10}
+                              onClick={() => (setPage(page + 1), nextPage(page + 1))}
+                            >
+                              Next
+                            </button>
+                          </>
+                        )}
+                      </div>
                       <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-8 w-full p-8 lg:p-16 xl:p-8'>
                         {propData?.map((prop) => {
                           const detailURL = getDetailURL(prop)
@@ -801,22 +831,22 @@ const FindHomes = () => {
                           <>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                page == 1
+                                page == 1 && propData.length <= 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={page == 1}
+                              disabled={page == 1 && propData.length <= 10}
                               onClick={() => (setPage(page - 1), prevPage(page - 1))}
                             >
                               Prev
                             </button>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                totalPage <= page
+                                totalPage <= page || propData.length < 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={totalPage <= page}
+                              disabled={totalPage <= page || propData.length < 10}
                               onClick={() => (setPage(page + 1), nextPage(page + 1))}
                             >
                               Next

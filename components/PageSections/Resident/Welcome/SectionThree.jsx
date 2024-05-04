@@ -23,7 +23,7 @@ const SectionThree = () => {
             <div className='w-full lg:w-1/2 flex flex-col justify-start bg-vb_white-500 lg:pl-8 xl:pl-12 2xl:pl-16 3xl:pl-20 4xl:pl-28 py-8'>
               <div className='flex flex-col justify-around items-center w-full'>
                 <Link
-                  href={'https://www.vinebrookhomes.com/service-request'}
+                  href={'https://www.exclusive.com/service-request'}
                   className='flex flex-col justify-center items-center w-full sm:w-3/4 lg:w-full bg-white px-4 py-8 rounded-xl shadow-md shadow-vb_gray-300 hover:shadow-lg hover:shadow-vb_gray-400 transition-all duration-150 ease-in-out [&>p]:hover:text-vb_blue-500'
                 >
                   {serviceRequestIcon ? (

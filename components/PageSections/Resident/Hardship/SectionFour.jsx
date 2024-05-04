@@ -11,7 +11,7 @@ const SectionFour = () => {
             willing to sign an addendum to your existing lease, please submit your application for the Hardship Relief
             Program by clicking the button below:  
           </p>
-          <LinkBtn address={'https://www.vinebrookhomes.com/resident/hardship_application'} newTab={'no'}>
+          <LinkBtn address={'https://www.exclusive.com/resident/hardship_application'} newTab={'no'}>
             APPLY NOW
           </LinkBtn>
         </BasicContainer>

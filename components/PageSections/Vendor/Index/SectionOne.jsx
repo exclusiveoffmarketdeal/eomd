@@ -45,7 +45,7 @@ const SectionOne = () => {
                     </LinkBtn>
                   </span>
                   <span className='text-vb_green-300 text-lg italic mt-8 px-4'>
-                    <Link href={'https://www.vinebrookhomes.com/vendor/create-account'}>create new account</Link>
+                    <Link href={'https://www.exclusive.com/vendor/create-account'}>create new account</Link>
                   </span>
                 </div>
               </BasicContainer>

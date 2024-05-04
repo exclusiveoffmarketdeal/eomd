@@ -169,7 +169,7 @@ const SectionOne = () => {
               />
             </Link>
             <Link
-              href='https://www.vinebrookhomes.com/service-request'
+              href='https://www.exclusive.com/service-request'
               className='flex items-center justify-center w-20 h-20 bg-vb_green-300 hover:bg-vb_green-400 rounded-l-2xl shadow-xl transition duration-150 ease-in-out'
               data-bs-toggle='tooltip'
               data-bs-placement='left'
