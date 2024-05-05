@@ -102,14 +102,14 @@ const FindHomes = () => {
   /*
   const handleChangeType = (event) => {
     setType(event.target.value)
-  }
+  }*/
   const handleChangeMinPrice = (event) => {
     setMinPrice(event.target.value)
   }
   const handleChangeMaxPrice = (event) => {
     setMaxPrice(event.target.value)
   }
-  */
+
   const handleChangeBeds = (event) => {
     setBeds(event.target.value)
   }
