@@ -5,7 +5,7 @@ const libraries = ['places']
 const Map = (props) => {
   const { setMap, defaultCenter, mapContainerStyle, options, zoom, children } = props
   const { isLoaded, loadError } = useLoadScript({
-    googleMapsApiKey: 'AIzaSyABGtfSnhch8fCQEXzBnMzrtDBLQVCoOGw',
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY,
     libraries,
   })
 
