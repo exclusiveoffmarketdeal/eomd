@@ -568,7 +568,7 @@ const FindHomes = () => {
                             {address.address + ', ' + address.city + ', ' + address.state + ' ' + address.zip}
                           </h5>
                           <p className='mb-2'>
-                            <small>$ {address.price} / month</small>
+                            <small>$ {address.price}</small>
                           </p>
                           <div className='info-body mb-2'>
                             {JSON.parse(address?.images).map(
@@ -611,8 +611,8 @@ const FindHomes = () => {
                               ) : (
                                 <Fragment key={uuidv4()}>
                                   <p>
-                                    This VineBrook Home is newly available or will be shortly. A full description is
-                                    coming soon!
+                                    This Exclusive Off market property is newly available or will be shortly. A full
+                                    description is coming soon!
                                   </p>
                                 </Fragment>
                               )
@@ -637,7 +637,7 @@ const FindHomes = () => {
                               {keyword ? (
                                 <>
                                   <h1 className='text-vb_blue-800 text-center  text-3xl xl:leading-normal font-black mb-4 3xl:mb-8'>
-                                    HOUSES FOR RENT IN {keyword}
+                                    HOUSES FOR SELL IN {keyword}
                                   </h1>
                                   <h2 className='text-vb_blue-800 text-center text-2xl mb-4 3xl:mb-8'>
                                     NEW HOUSES IN THE {keyword} {type} ARE COMING SOON !
@@ -801,7 +801,7 @@ const FindHomes = () => {
                                   <ImageSwiper images={images} detailURL={detailURL} status={propStatus} />
                                   <div className='p-2'>
                                     <div className='relative'>
-                                      <p className='text-lg font-bold mb-2'>${prop.price}/month</p>
+                                      <p className='text-lg font-bold mb-2'>${prop.price}</p>
                                       <p className='text-vb_gray-400 mb-1'>
                                         {prop.beds}bds {prop.baths}ba, {prop.area}sqft
                                       </p>
@@ -812,8 +812,8 @@ const FindHomes = () => {
                                         <p className='font-thin truncate'>{propDetail.substring(0, 70)}...</p>
                                       ) : (
                                         <p>
-                                          This VineBrook Home is newly available or will be shortly. A full description
-                                          is coming soon!
+                                          This Exclusive off market property is newly available or will be shortly. A
+                                          full description is coming soon!
                                         </p>
                                       )}
                                     </div>

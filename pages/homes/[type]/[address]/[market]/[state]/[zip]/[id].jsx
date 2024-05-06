@@ -134,10 +134,9 @@ const Homes = () => {
                       </h1>
                     </a>
 
-                    <h4 className='text-3xl font-bold mt-6 text-vb_blue-500'> ${propDetails[0]?.price} / mo</h4>
-                    <h5 className='text-2xl font-light mt-3 text-[#677F8B]'>
-                      {propDetails[0]?.beds} Bedrooms, {propDetails[0]?.baths} Bathrooms
-                    </h5>
+                    <h4 className='text-3xl font-bold mt-6 text-vb_blue-500'>Price: ${propDetails[0]?.price}</h4>
+                    <h5 className='text-2xl font-light mt-3 text-[#677F8B]'>ARV: ${propDetails[0]?.arv}</h5>
+                    <h5 className='text-2xl font-light mt-3 text-[#677F8B]'>Rehab: ${propDetails[0]?.rehab}</h5>
                   </div>
                 </div>
               </div>
@@ -249,15 +248,7 @@ const Homes = () => {
 
           <div className='w-full bg-vb_gray-500 py-12' ref={ref}>
             <BasicContainer>
-              <span className='w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 flex flex-col sm:flex-row justify-between mx-auto mb-12'>
-                <a
-                  className='bg-vb_green-400 hover:bg-vb_green-500 text-center text-white font-bold text-xl mb-4 sm:mb-0 py-2 px-4 rounded-lg transition-all duration-150 ease-in-out'
-                  href='https://www.exclusive.com/files/resident-selection-criteria.pdf'
-                  target='_blank'
-                >
-                  Rental Criteria
-                </a>
-
+              <span className='w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/3 flex flex-col sm:flex-row justify-center mx-auto mb-12'>
                 <a
                   className='bg-vb_green-400 hover:bg-vb_green-500 text-center text-white font-bold text-xl py-2 px-4 rounded-lg transition-all duration-150 ease-in-out'
                   onClick={() => {
@@ -275,7 +266,7 @@ const Homes = () => {
                         <div className='flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t '>
                           <p>
                             We are sorry. Currently this home is unavailable. Check back soon or Contact us at
-                            +1(855)513-5678.
+                            +1(425)449-0987.
                           </p>
                           <button
                             className='bg-transparent border-0 text-black float-right'
@@ -294,14 +285,26 @@ const Homes = () => {
               <div className='bg-vb_gray-100 p-4 rounded-2xl bg-opacity-70'>
                 <div className='bg-white py-14 px-4 sm:px-8 lg:px-12 rounded-lg shadow-md shadow-vb_gray-300'>
                   <h3 className='text-center text-4xl font-light uppercase tracking-widest mb-14'>PROPERTY DETAILS</h3>
-                  <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 xl:gap-x-18 text-xl md:text-2xl mb-8 [&>div>div>b]:font-normal [&>div>div>b]:mr-2 [&>div>div>p]:text-vb_gray-300'>
+                  <div className='grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 xl:gap-x-18 text-xl md:text-2xl mb-8 [&>div>div>b]:font-normal [&>div>div>b]:mr-2 [&>div>div>p]:text-vb_gray-300'>
                     <div className='text-left'>
                       <div className='flex flex-row justify-start mb-4 md:mb-6'>
-                        <b className='whitespace-nowrap'>Price: </b> <p>${propDetails[0]?.price}/ Month</p>
+                        <b className='whitespace-nowrap'>Purchase Price: </b> <p>${propDetails[0]?.price}</p>
                       </div>
                       <div className='flex flex-row justify-start mb-4 md:mb-6'>
-                        <b className='whitespace-nowrap'>Property Size:</b>
+                        <b className='whitespace-nowrap'>ARV: </b> <p>${propDetails[0]?.arv}</p>
+                      </div>
+                      <div className='flex flex-row justify-start mb-4 md:mb-6'>
+                        <b className='whitespace-nowrap'>Rehab: </b> <p>${propDetails[0]?.rehab}</p>
+                      </div>
+                    </div>
+                    <div className='text-left'>
+                      <div className='flex flex-row justify-start mb-4 md:mb-6'>
+                        <b className='whitespace-nowrap'>Built Size:</b>
                         <p>{propDetails[0]?.area} Sqft.</p>
+                      </div>
+                      <div className='flex flex-row justify-start mb-4 md:mb-6'>
+                        <b className='whitespace-nowrap'>Lot Size:</b>
+                        <p>{propDetails[0]?.lot} Sqft.</p>
                       </div>
                     </div>
                     <div className='text-left'>
@@ -325,29 +328,12 @@ const Homes = () => {
                       </div>
                     </div>
                   </div>
-                  <div className='text-center text-3xl'>
-                    <h3 className='text-center text-4xl font-light uppercase tracking-widest mb-8'>Schools</h3>
-                    <div className='grid grid-cols-1 text-xl md:text-2xl [&>div>b]:font-normal [&>div>b]:mr-2 [&>div>p]:text-vb_gray-300'>
-                      <div className='flex-col sm:flex-row justify-start items-start text-left mb-4 md:mb-6'>
-                        <b className='whitespace-nowrap'>Elementary School:</b>
-                        <p className='whitespace-normal'>{propDetails[0]?.elementarySchool}</p>
-                      </div>
-                      <div className='flex-col sm:flex-row justify-start items-start text-left mb-4 md:mb-6'>
-                        <b className='whitespace-nowrap'>Middle/Jr. High School:</b>
-                        <p className='whitespace-normal'>{propDetails[0]?.middleSchool}</p>
-                      </div>
-                      <div className='flex-col sm:flex-row justify-start items-start text-left mb-4 md:mb-6'>
-                        <b className='whitespace-nowrap'>High School:</b>
-                        <p className='whitespace-normal'>{propDetails[0]?.highSchool}</p>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </BasicContainer>
           </div>
 
-          <div className='w-full bg-vb_gray-100 py-12'>
+          {/* <div className='w-full bg-vb_gray-100 py-12'>
             <BasicContainer>
               <iframe
                 className='w-full'
@@ -369,7 +355,7 @@ const Homes = () => {
                 frameBorder='0'
               ></iframe>
             </BasicContainer>
-          </div>
+          </div> */}
         </>
       ) : (
         <>
@@ -391,7 +377,7 @@ const Homes = () => {
               SIMILAR PROPERTIES
             </div>
             <div className=''>
-              <div id="similar-properties-swiper" className='flex flex-col space-y-5 mx-1 md:mx-4'>
+              <div id='similar-properties-swiper' className='flex flex-col space-y-5 mx-1 md:mx-4'>
                 <Swiper
                   slidesPerView={4}
                   spaceBetween={30}
@@ -419,12 +405,13 @@ const Homes = () => {
                     '@1.50': {
                       slidesPerView: 4,
                       spaceBetween: 50,
-                    }
+                    },
                   }}
                   style={{
                     '--swiper-navigation-size': '20px',
-                    'width': '100%'
-                  }}>
+                    width: '100%',
+                  }}
+                >
                   {similarProperties.map((simProp, i) => {
                     const simDetailURL = getDetailURL(simProp)
                     const simImages = JSON.parse(simProp.images)
