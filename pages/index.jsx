@@ -47,7 +47,7 @@ const FindHomes = () => {
   const [availableStatus, setAvailableStatus] = useState({})
   const [map, setMap] = useState(null)
   const [defaultCenter, setDefaultCenter] = useState(null)
-  const [centerLat, setCenterLat] = useState(47.651230)
+  const [centerLat, setCenterLat] = useState(47.65123)
   const [centerLng, setCenterLng] = useState(-122.2908099)
   const [zoom, setZoom] = useState(7)
   const [locs, setLocs] = useState([])
@@ -326,9 +326,9 @@ const FindHomes = () => {
         }
         timeout = setTimeout(function () {
           var cntr = map.getCenter()
-          setCenterLat(cntr.lat())
-          setCenterLng(cntr.lng())
-          fetchListingData(cntr.lat(), cntr.lng())
+          setCenterLat(cntr?.lat())
+          setCenterLng(cntr?.lng())
+          fetchListingData(cntr?.lat(), cntr?.lng())
         }, 500)
       })
 
