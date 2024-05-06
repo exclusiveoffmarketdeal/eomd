@@ -801,21 +801,22 @@ const FindHomes = () => {
                                   <ImageSwiper images={images} detailURL={detailURL} status={propStatus} />
                                   <div className='p-2'>
                                     <div className='relative'>
-                                      <p className='text-lg font-bold mb-2'>${prop.price}</p>
+                                      <p className='text-lg font-bold mb-2'>Price: ${prop.price}</p>
+                                      <p className='text-lg font-bold mb-2'>ARV: ${prop.arv}</p>
                                       <p className='text-vb_gray-400 mb-1'>
                                         {prop.beds}bds {prop.baths}ba, {prop.area}sqft
                                       </p>
                                       <p className='text-vb_gray-400 mb-2'>
                                         {prop.address}, {prop.city}, {prop.state} {prop.zip}
                                       </p>
-                                      {prop.detail != '"None"' && prop.detail != '' && prop.detail != 'None' ? (
+                                      {/* {propDetail !== '"None"' && propDetail !== '' && propDetail !== 'None' ? (
                                         <p className='font-thin truncate'>{propDetail.substring(0, 70)}...</p>
                                       ) : (
-                                        <p>
+                                        <p className='text-vb_gray-400'>
                                           This Exclusive off market property is newly available or will be shortly. A
                                           full description is coming soon!
                                         </p>
-                                      )}
+                                      )} */}
                                     </div>
                                   </div>
                                 </div>
