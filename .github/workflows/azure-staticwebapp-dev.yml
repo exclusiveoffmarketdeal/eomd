@@ -55,7 +55,7 @@ jobs:
           app_artifact_location: ${{ env.APP_ARTIFACT_LOCATION }}
           ###### End of Repository/Build Configurations ######
         env:
-          NEXT_PUBLIC_API_URL: 'localhost:3000'
+          skip_deploy_on_missing_secrets: true
   close_pull_request_job:
     permissions:
       contents: none
