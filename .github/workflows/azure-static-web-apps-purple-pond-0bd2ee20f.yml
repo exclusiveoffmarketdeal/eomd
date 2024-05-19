@@ -34,7 +34,8 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           skip_deploy_on_missing_secrets: true
-          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_API_URL: ${{ env.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_GOOGLE_MAP_KEY: ${{ env.NEXT_PUBLIC_GOOGLE_MAP_KEY }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
