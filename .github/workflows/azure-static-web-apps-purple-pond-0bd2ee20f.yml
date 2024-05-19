@@ -34,7 +34,7 @@ jobs:
           ###### End of Repository/Build Configurations ######
         env:
           skip_deploy_on_missing_secrets: true
-          NEXT_PUBLIC_API_URL: 'localhost:3000'
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}
 
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
