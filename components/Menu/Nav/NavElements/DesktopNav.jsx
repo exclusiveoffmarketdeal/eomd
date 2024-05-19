@@ -33,8 +33,8 @@ const DesktopNav = () => {
             </div>
             <div className='w-3/5 h-full flex justify-end'>
               <div className='w-[200px] h-full grid grid-cols-2 items-center [&>p]:text-end [&>p]:uppercase [&>p]:px-2'>
-                <LinkUnderline address={'/log-in'}>Log In</LinkUnderline>
-                <LinkUnderline address={'/sign-up'}>Sign Up</LinkUnderline>
+                <LinkUnderline address={'/login'}>Log In</LinkUnderline>
+                <LinkUnderline address={'/signup'}>Sign Up</LinkUnderline>
                 {/* <LinkUnderline address={'/sell-your-home'}>Sell Your Home</LinkUnderline>
                 <LinkUnderline address={'/house-for-rent'}>Find A Home</LinkUnderline>
                 <LinkUnderline address={'/buy-your-home'}>Contact Us</LinkUnderline>
