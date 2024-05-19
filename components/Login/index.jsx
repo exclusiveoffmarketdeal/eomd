@@ -4,35 +4,65 @@ import ApiClient from '@/utils/ApiClient'
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
+  const [error, setError] = useState({
+    email: '',
+    password: '',
+    general: '',
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!email || !password) {
-      setError('Please enter both email and password.')
-      return
+
+    let isValid = true
+    const newError = {
+      email: '',
+      password: '',
+      general: '',
     }
+
+    if (!email) {
+      newError.email = 'Enter Email.'
+      isValid = false
+    }
+
+    if (!password) {
+      newError.password = 'Enter Password.'
+      isValid = false
+    }
+
+    setError(newError)
+    if (!isValid) return
 
     const formData = {
       email: email,
       password: password,
     }
-    setError('') // Clear any previous error messages
+    setError({ email: '', password: '', general: '' }) // Clear any previous error messages
     try {
-      const data = await ApiClient.postRequest('/users/login', formData)
+      const loginResponse = await ApiClient.postRequest('/users/login', formData)
       // Handle successful login, e.g., redirect to dashboard
+      if (loginResponse.success) {
+      } else {
+        setError({
+          ...error,
+          general: 'Invalid email or password', // Handle specific error from API response
+        })
+      }
     } catch (error) {
-      setError('Invalid email or password.') // Handle specific error from API response
+      setError({
+        ...error,
+        general: 'Issue while logging you in', // Handle specific error from API response
+      })
     }
   }
 
   return (
     <>
-      {error && <div className='text-red-500 text-center'>{error}</div>}
+      {error.general && <div className='text-red-500 text-center'>{error.general}</div>}
       <form className='space-y-12 w-full sm:w-[400px]' onSubmit={handleSubmit}>
         <div className='grid w-full items-center gap-1.5'>
           <div>
-            <label htmlFor='email' className='sr-only'>
+            <label htmlFor='email' className='p-0 m-0 overflow-hidden border-0'>
               Email address
             </label>
             <input
@@ -41,14 +71,21 @@ const Login = () => {
               type='email'
               autoComplete='email'
               required
-              className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+              className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                error.email ? 'border-red-500' : 'border-gray-300'
+              } placeholder-gray-500  text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
               placeholder='Email address'
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setError({ ...error, email: '' }) // Clear email error on change
+              }}
             />
+
+            {error.email && <p className='text-red-500 text-sm'>{error.email}</p>}
           </div>
           <div>
-            <label htmlFor='password' className='sr-only'>
+            <label htmlFor='password' className='p-0 m-0 overflow-hidden border-0'>
               Password
             </label>
             <input
@@ -57,11 +94,18 @@ const Login = () => {
               type='password'
               autoComplete='current-password'
               required
-              className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm'
+              className={`appearance-none rounded-none relative block w-full px-3 py-2 border ${
+                error.password ? 'border-red-500' : 'border-gray-300'
+              } placeholder-gray-500  text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm`}
               placeholder='Password'
               value={password}
-              onChange={setPassword}
+              onChange={(e) => {
+                setPassword(e.target.value)
+                setError({ ...error, password: '' }) // Clear password error on change
+              }}
             />
+
+            {error.password && <p className='text-red-500 text-sm'>{error.password}</p>}
           </div>
         </div>
         <div className='w-full'>

@@ -121,10 +121,18 @@ const Signup = () => {
       firstName: firstName,
       lastName: lastName,
     }
-    setError('')
+    setError({ firstName: '', lastName: '', email: '', password: '', confirmPassword: '', general: '' })
+
     try {
-      const data = await ApiClient.postRequest('/users/signup', formData)
+      const signupResponse = await ApiClient.postRequest('/users/signup', formData)
       // Handle successful signup, e.g., redirect to login page
+      if (signupResponse.success) {
+      } else {
+        setError({
+          ...error,
+          general: 'An error occurred during signup. Please try again.', // Handle specific error from API response
+        })
+      }
     } catch (error) {
       setError({
         ...error,
