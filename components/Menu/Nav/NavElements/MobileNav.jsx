@@ -41,16 +41,18 @@ const MobileNav = () => {
           )}
         >
           <div className='relative flex flex-col justify-between py-2 pl-4 font-medium w-full h-screen bg-vb_white-100'>
-            <div className='flex flex-col justify-between h-1/2 text-vb_gray-500 font-normal [&>a]:uppercase'>
-              <Link href='/house-for-rent'>Find A Home</Link>
+            <div className='flex flex-col gap-8 h-1/2 text-vb_gray-500 font-normal [&>a]:uppercase'>
+              {/* <Link href='/house-for-rent'>Find A Home</Link>
               <Link href='/buy-your-home'>Buy Your Home</Link>
               <Link href='/sell-your-home'>Sell Your Home</Link>
-              <Link href='/about-us'>About Us</Link>
+              <Link href='/about-us'>About Us</Link>*/}
               {/* <Link href='/newsroom'>On The Vine</Link> */}
-              <Link href='/buy-your-home'>Buy Your Home</Link>
+              {/* <Link href='/buy-your-home'>Buy Your Home</Link>
               <Link href='/careers'>Careers</Link>
               <Link href='/resident'>Resident</Link>
-              <Link href='/vendor'>Vendor</Link>
+              <Link href='/vendor'>Vendor</Link> */}
+              <Link href={'/login'}>Log In</Link>
+              <Link href={'/signup'}>Sign Up</Link>
               <span className='mt-2'>
                 <LinkBtn address={'/contacts'} bgColor={'bg-vb_blue-500'} bgColorHover={'hover:bg-vb_blue-600'}>
                   Help
