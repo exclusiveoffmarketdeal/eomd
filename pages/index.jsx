@@ -19,6 +19,8 @@ const options = {
 }
 
 const FindHomes = () => {
+
+  console.log('API URL', process.env.NEXT_PUBLIC_API_URL)
   const [isLoading, setIsLoading] = useState(false)
   const [loading, setLoading] = useState(false)
   const [loadingListing, setLoadingListing] = useState(false)
