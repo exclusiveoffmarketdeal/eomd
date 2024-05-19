@@ -33,6 +33,7 @@ jobs:
           output_location: "" # Built app content directory - optional
           ###### End of Repository/Build Configurations ######
         env:
+          skip_deploy_on_missing_secrets: true
           NEXT_PUBLIC_API_URL: 'localhost:3000'
 
   close_pull_request_job:
