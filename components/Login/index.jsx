@@ -42,6 +42,10 @@ const Login = () => {
       const loginResponse = await ApiClient.postRequest('/users/login', formData)
       // Handle successful login, e.g., redirect to dashboard
       if (loginResponse.success) {
+        const token = loginResponse.token
+
+        // Store the token in local storage
+        localStorage.setItem('authToken', token)
       } else {
         setError({
           ...error,
@@ -118,18 +122,18 @@ const Login = () => {
           </button>
           <button
             type='button'
-            class='group relative w-full flex justify-center mb-2 transition-colors focus:ring-2 p-0.5 disabled:cursor-not-allowed bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 disabled:bg-gray-300 disabled:text-gray-700 rounded-lg '
+            className='group relative w-full flex justify-center mb-2 transition-colors focus:ring-2 p-0.5 disabled:cursor-not-allowed bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 disabled:bg-gray-300 disabled:text-gray-700 rounded-lg '
           >
-            <span class='flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false'>
+            <span className='flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false'>
               <svg
                 stroke='currentColor'
                 fill='currentColor'
-                stroke-width='0'
+                strokeWidth='0'
                 version='1.1'
                 x='0px'
                 y='0px'
                 viewBox='0 0 48 48'
-                enable-background='new 0 0 48 48'
+                enableBackground='new 0 0 48 48'
                 height='1em'
                 width='1em'
                 xmlns='http://www.w3.org/2000/svg'
@@ -156,13 +160,13 @@ const Login = () => {
           </button>
           <button
             type='button'
-            class='group relative w-full flex justify-center mb-2 transition-colors focus:ring-2 p-0.5 disabled:cursor-not-allowed bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 disabled:bg-gray-300 disabled:text-gray-700 rounded-lg '
+            className='group relative w-full flex justify-center mb-2 transition-colors focus:ring-2 p-0.5 disabled:cursor-not-allowed bg-white hover:bg-gray-100 text-gray-900 border border-gray-200 disabled:bg-gray-300 disabled:text-gray-700 rounded-lg '
           >
-            <span class='flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false'>
+            <span className='flex items-center justify-center gap-1 font-medium py-1 px-2.5 text-base false'>
               <svg
                 stroke='currentColor'
                 fill='currentColor'
-                stroke-width='0'
+                strokeWidth='0'
                 viewBox='0 0 448 512'
                 height='1em'
                 width='1em'

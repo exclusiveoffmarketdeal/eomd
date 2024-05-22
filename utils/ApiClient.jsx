@@ -1,3 +1,5 @@
+const jwt = require('jsonwebtoken')
+
 function isEmpty(obj) {
   for (var prop in obj) {
     if (obj.hasOwnProperty(prop)) return false
@@ -5,9 +7,40 @@ function isEmpty(obj) {
   return true
 }
 
-async function buildRequestOptions(method, payload = {}) {
+async function getBearerToken() {
   const headers = {
     'Content-Type': 'application/json',
+  }
+  let requestOptions = {
+    method: 'GET',
+    headers: headers,
+  }
+
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visitor/generateToken`, requestOptions)
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json() // Extract JSON data from the response
+
+    const idToken = data.token // Get the token from the response data
+
+    return idToken
+  } catch (error) {
+    console.error('Error:', error)
+    return null
+  }
+}
+
+async function buildRequestOptions(method, payload = {}) {
+  let bearerToken = await getBearerToken()
+
+  let authToken = localStorage.getItem('authToken')
+  const headers = {
+    'Content-Type': 'application/json',
+    Authorization: `Bearer ${bearerToken} ${authToken}`, //visitor usertoken
   }
 
   let requestOptions = {
