@@ -7,6 +7,8 @@ import Footer from '@/components/Menu/Footer/FooterContainer'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 // import { AppInsightsContext } from '@microsoft/applicationinsights-react-js'
 // import { reactPlugin } from '../ApplicationInsightsService'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const client = new ApolloClient({
   uri: process.env.NEXT_PUBLIC_APOLLOCLIENT_URI,
@@ -22,6 +24,7 @@ const App = ({ Component, pageProps }) => {
           <PageContainer>
             {/* <AppInsightsContext.Provider value={reactPlugin}> */}
             <Component {...pageProps} />
+            <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover />
             {/* </AppInsightsContext.Provider> */}
           </PageContainer>
           <Footer />

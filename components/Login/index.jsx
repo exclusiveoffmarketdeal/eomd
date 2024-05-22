@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import ApiClient from '@/utils/ApiClient'
+import { toast } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const Login = () => {
+  const router = useRouter();
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState({
@@ -46,6 +49,10 @@ const Login = () => {
 
         // Store the token in local storage
         localStorage.setItem('authToken', token)
+
+        // Redirect to homePage
+        toast.success('Login successful!');
+        router.push('/');
       } else {
         setError({
           ...error,

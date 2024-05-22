@@ -1,5 +1,3 @@
-const jwt = require('jsonwebtoken')
-
 function isEmpty(obj) {
   for (var prop in obj) {
     if (obj.hasOwnProperty(prop)) return false
@@ -8,16 +6,14 @@ function isEmpty(obj) {
 }
 
 async function getBearerToken() {
-  const headers = {
-    'Content-Type': 'application/json',
-  }
-  let requestOptions = {
-    method: 'GET',
-    headers: headers,
+  // Get the token from local storage
+  // Return the token if it exists
+  if (localStorage.getItem('visitorToken') !== null) {
+    return localStorage.getItem('visitorToken')
   }
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visitor/generateToken`, requestOptions)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visitor/generateToken`, { method: 'GET', headers: { 'Content-Type': 'application/json' } })
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
@@ -26,7 +22,8 @@ async function getBearerToken() {
     const data = await response.json() // Extract JSON data from the response
 
     const idToken = data.token // Get the token from the response data
-
+    // Store the token in local storage
+    localStorage.setItem('visitorToken', idToken)
     return idToken
   } catch (error) {
     console.error('Error:', error)
@@ -38,9 +35,14 @@ async function buildRequestOptions(method, payload = {}) {
   let bearerToken = await getBearerToken()
 
   let authToken = localStorage.getItem('authToken')
+  if(authToken !== null)
+  {
+    bearerToken = `${bearerToken} ${authToken}`
+  }
+
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${bearerToken} ${authToken}`, //visitor usertoken
+    Authorization: `Bearer ${bearerToken}`, //visitor usertoken
   }
 
   let requestOptions = {
