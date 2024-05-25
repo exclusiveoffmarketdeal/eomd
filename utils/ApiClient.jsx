@@ -58,7 +58,7 @@ async function buildRequestOptions(method, payload = {}) {
 }
 
 class ApiClient {
-  static baseURL = process.env.NEXT_PUBLIC_API_URL || 'https://eomdapi.azurewebsites.net'
+  static baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080'
 
   /**
    * Sends a GET request to backend with parameters
