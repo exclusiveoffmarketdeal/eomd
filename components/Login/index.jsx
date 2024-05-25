@@ -48,9 +48,10 @@ const Login = () => {
       // Handle successful login, e.g., redirect to dashboard
       if (loginResponse.success) {
         const token = loginResponse.token
-
+        const firstName = loginResponse.firstName
+        const lastName = loginResponse.lastName
         // Use context to handle login
-        login(token)
+        login(token, firstName, lastName)
 
         // Redirect to homePage
         toast.success('Login successful!')

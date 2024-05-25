@@ -5,12 +5,19 @@ import BasicContainer from '@/components/Hardware/Containers/BasicContainer'
 import LinkBtn from '@/components/Hardware/LinkBtn'
 import LinkUnderline from './LinkUnderline'
 import { MdPersonOutline } from 'react-icons/md'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useAuth } from '@/components/AuthProvider'
 
 const DesktopNav = () => {
-  const [homeOpen, setHomeOpen] = useState(false)
-  const [aboutUsOpen, setAboutUsOpen] = useState(false)
-  const [logInOpen, setLogInOpen] = useState(false)
+  const { authToken } = useAuth()
+  const [firstName, setFirstName] = useState('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setFirstName(localStorage.getItem('firstName') || '')
+    }
+  }, [])
+
   return (
     <>
       <div className='hidden lg:block bg-vb_white-100 shadow-sm shadow-vb_gray-300'>
@@ -33,8 +40,18 @@ const DesktopNav = () => {
             </div>
             <div className='w-3/5 h-full flex justify-end'>
               <div className='w-[200px] h-full grid grid-cols-2 items-center [&>p]:text-end [&>p]:uppercase [&>p]:px-2'>
-                <LinkUnderline address={'/login'}>Log In</LinkUnderline>
-                <LinkUnderline address={'/signup'}>Sign Up</LinkUnderline>
+                {!authToken ? (
+                  <>
+                    <LinkUnderline address={'/login'}>Log In</LinkUnderline>
+                    <LinkUnderline address={'/signup'}>Sign Up</LinkUnderline>
+                  </>
+                ) : (
+                  <>
+                    <p>Welcome,{firstName}</p>
+                    <LinkUnderline address={'/logout'}>Log Out</LinkUnderline>
+                  </>
+                )}
+
                 {/* <LinkUnderline address={'/sell-your-home'}>Sell Your Home</LinkUnderline>
                 <LinkUnderline address={'/house-for-rent'}>Find A Home</LinkUnderline>
                 <LinkUnderline address={'/buy-your-home'}>Contact Us</LinkUnderline>
