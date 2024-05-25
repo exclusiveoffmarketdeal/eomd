@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import ApiClient from '@/utils/ApiClient'
+import { toast } from 'react-toastify'
+import { useRouter } from 'next/router'
 
 const Signup = () => {
   const [email, setEmail] = useState('')
@@ -127,6 +129,9 @@ const Signup = () => {
       const signupResponse = await ApiClient.postRequest('/users/signup', formData)
       // Handle successful signup, e.g., redirect to login page
       if (signupResponse.success) {
+        // Redirect to homePage
+        toast.success('Login successful!')
+        router.push('/login')
       } else {
         setError({
           ...error,

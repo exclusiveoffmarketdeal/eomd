@@ -19,7 +19,6 @@ const options = {
 }
 
 const FindHomes = () => {
-
   console.log('API URL', process.env.NEXT_PUBLIC_API_URL)
   const [isLoading, setIsLoading] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -765,22 +764,22 @@ const FindHomes = () => {
                           <>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                page == 1 && propData.length <= 10
+                                page == 1 && propData?.length <= 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={page == 1 && propData.length <= 10}
+                              disabled={page == 1 && propData?.length <= 10}
                               onClick={() => (setPage(page - 1), prevPage(page - 1))}
                             >
                               Prev
                             </button>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                totalPage <= page || propData.length < 10
+                                totalPage <= page || propData?.length < 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={totalPage <= page || propData.length < 10}
+                              disabled={totalPage <= page || propData?.length < 10}
                               onClick={() => (setPage(page + 1), nextPage(page + 1))}
                             >
                               Next
@@ -834,22 +833,22 @@ const FindHomes = () => {
                           <>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                page == 1 && propData.length <= 10
+                                page == 1 && propData?.length <= 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={page == 1 && propData.length <= 10}
+                              disabled={page == 1 && propData?.length <= 10}
                               onClick={() => (setPage(page - 1), prevPage(page - 1))}
                             >
                               Prev
                             </button>
                             <button
                               className={`ms-2 text-white px-4 py-1 rounded-lg transition-all duration-150 ease-in-out ${
-                                totalPage <= page || propData.length < 10
+                                totalPage <= page || propData?.length < 10
                                   ? 'bg-vb_gray-100 hover:bg-vb_gray-600 '
                                   : 'bg-vb_blue-500 hover:bg-vb_blue-600 '
                               }`}
-                              disabled={totalPage <= page || propData.length < 10}
+                              disabled={totalPage <= page || propData?.length < 10}
                               onClick={() => (setPage(page + 1), nextPage(page + 1))}
                             >
                               Next
