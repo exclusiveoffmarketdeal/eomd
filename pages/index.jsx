@@ -10,6 +10,7 @@ import Autocomplete from '@/components/Map/Autocomplete'
 import ApiClient from '@/utils/ApiClient'
 import ImageSwiper from './house-for-rent/ImageSwiper'
 import MultiRangeSlider from '@/components/Map/MultiRangeSlider'
+import { useAuth } from '@/components/AuthProvider'
 
 const options = {
   disableDefaultUI: true,
@@ -59,6 +60,7 @@ const FindHomes = () => {
   const [suggestionList, setSuggestionList] = useState([])
   const [suggestions, setSuggestions] = useState([])
   const [suggestionType, setSuggestionType] = useState([])
+  const { authToken } = useAuth()
 
   const google = typeof window !== 'undefined' && window.google
 
@@ -437,7 +439,7 @@ const FindHomes = () => {
                 handleChangeMinArea(e)
               }}
               value={minArea}
-              defaultValue={minArea}
+              // defaultValue={minArea}
             >
               <option value='0'>Min Area</option>
               <option value='500'>500 sqft</option>
@@ -465,7 +467,7 @@ const FindHomes = () => {
                 handleChangeMaxArea(e)
               }}
               value={maxArea}
-              defaultValue={maxArea}
+              // defaultValue={maxArea}
             >
               <option value='0'>Max Area</option>
               <option value='500'>500 sqft</option>
@@ -538,92 +540,108 @@ const FindHomes = () => {
           <>
             <div className='w-full lg:w-1/2'>
               <div className='sticky top-0'>
-                <Map
-                  setMap={setMap}
-                  mapContainerStyle={mapContainerStyle}
-                  defaultCenter={defaultCenter}
-                  zoom={zoom}
-                  options={options}
-                >
-                  <MarkerClustererF>
-                    {(clusterer) =>
-                      propMapData?.map((loc) => (
-                        <MarkerF
-                          key={uuidv4()}
-                          position={{ lat: parseFloat(loc.latitude), lng: parseFloat(loc.longitude) }}
-                          clusterer={clusterer}
-                          onClick={() => handleToggleOpen(loc)}
-                        />
-                      ))
-                    }
-                  </MarkerClustererF>
-                  {showInfo && (
-                    <InfoWindowF onCloseClick={handleToggleClose} position={position}>
-                      <div style={{ width: '280px' }}>
-                        <a
-                          href={`/homes/${getDetailURL(address)}`}
-                          target='_blank'
-                          className='position-absolute top-0 start-0 bottom-0 end-0 '
-                        >
-                          <h5 className='text-xl font-extrabold'>
-                            {address.address + ', ' + address.city + ', ' + address.state + ' ' + address.zip}
-                          </h5>
-                          <p className='mb-2'>
-                            <small>$ {address.price}</small>
-                          </p>
-                          <div className='info-body mb-2'>
-                            {JSON.parse(address?.images).map(
-                              (img, i) =>
-                                i == 0 && (
-                                  <Fragment key={uuidv4()}>
-                                    <Image
-                                      src={
-                                        img.ImageURL !== '' && img.ImageURL !== undefined
-                                          ? `${img.ImageURL}`
-                                          : `/img/homepage/default.png`
-                                      }
-                                      className='m-3 max-sm:w-[365px] lg:w-[263px] '
-                                      width='263'
-                                      height='263'
-                                      alt='Property Image'
-                                    />
-                                    {availableStatus !== 'Y' || img.ImageURL === '' || img.ImageURL === undefined ? (
-                                      <span className='inline-block absolute left-0 opacity-7 rounded-r-2xl top-[100px] text-white bg-[#eca858] p-[12px] w-3/5 text-center'>
-                                        Coming soon
-                                      </span>
-                                    ) : (
-                                      <></>
-                                    )}
-                                  </Fragment>
-                                )
-                            )}
+                {authToken ? (
+                  <>
+                    <Map
+                      setMap={setMap}
+                      mapContainerStyle={mapContainerStyle}
+                      defaultCenter={defaultCenter}
+                      zoom={zoom}
+                      options={options}
+                    >
+                      <MarkerClustererF>
+                        {(clusterer) =>
+                          propMapData?.map((loc) => (
+                            <MarkerF
+                              key={uuidv4()}
+                              position={{ lat: parseFloat(loc.latitude), lng: parseFloat(loc.longitude) }}
+                              clusterer={clusterer}
+                              onClick={() => handleToggleOpen(loc)}
+                            />
+                          ))
+                        }
+                      </MarkerClustererF>
+                      {showInfo && (
+                        <InfoWindowF onCloseClick={handleToggleClose} position={position}>
+                          <div style={{ width: '280px' }}>
+                            <a
+                              href={`/homes/${getDetailURL(address)}`}
+                              target='_blank'
+                              className='position-absolute top-0 start-0 bottom-0 end-0 '
+                            >
+                              <h5 className='text-xl font-extrabold'>
+                                {address.address + ', ' + address.city + ', ' + address.state + ' ' + address.zip}
+                              </h5>
+                              <p className='mb-2'>
+                                <small>$ {address.price}</small>
+                              </p>
+                              <div className='info-body mb-2'>
+                                {JSON.parse(address?.images).map(
+                                  (img, i) =>
+                                    i == 0 && (
+                                      <Fragment key={uuidv4()}>
+                                        <Image
+                                          src={
+                                            img.ImageURL !== '' && img.ImageURL !== undefined
+                                              ? `${img.ImageURL}`
+                                              : `/img/homepage/default.png`
+                                          }
+                                          className='m-3 max-sm:w-[365px] lg:w-[263px] '
+                                          width='263'
+                                          height='263'
+                                          alt='Property Image'
+                                        />
+                                        {availableStatus !== 'Y' ||
+                                        img.ImageURL === '' ||
+                                        img.ImageURL === undefined ? (
+                                          <span className='inline-block absolute left-0 opacity-7 rounded-r-2xl top-[100px] text-white bg-[#eca858] p-[12px] w-3/5 text-center'>
+                                            Coming soon
+                                          </span>
+                                        ) : (
+                                          <></>
+                                        )}
+                                      </Fragment>
+                                    )
+                                )}
+                              </div>
+                              <p className='mb-2'>{address.dwellingType}</p>
+                              <p className='mb-2'>
+                                Beds: {address.beds}&nbsp;&nbsp;Baths: {address.baths}&nbsp;&nbsp;Area:{address.area}
+                                sqft
+                              </p>
+                              <p className='mb-2'>
+                                {JSON.parse(address?.detail).map((d) =>
+                                  d.description != '"None"' && d.description != '' && d.description != 'None' ? (
+                                    <Fragment key={uuidv4()}>
+                                      <p>{d.description.substring(0, 70)}...</p>
+                                    </Fragment>
+                                  ) : (
+                                    <Fragment key={uuidv4()}>
+                                      <p>
+                                        This Exclusive Off market property is newly available or will be shortly. A full
+                                        description is coming soon!
+                                      </p>
+                                    </Fragment>
+                                  )
+                                )}
+                              </p>
+                            </a>
                           </div>
-                          <p className='mb-2'>{address.dwellingType}</p>
-                          <p className='mb-2'>
-                            Beds: {address.beds}&nbsp;&nbsp;Baths: {address.baths}&nbsp;&nbsp;Area:{address.area}
-                            sqft
-                          </p>
-                          <p className='mb-2'>
-                            {JSON.parse(address?.detail).map((d) =>
-                              d.description != '"None"' && d.description != '' && d.description != 'None' ? (
-                                <Fragment key={uuidv4()}>
-                                  <p>{d.description.substring(0, 70)}...</p>
-                                </Fragment>
-                              ) : (
-                                <Fragment key={uuidv4()}>
-                                  <p>
-                                    This Exclusive Off market property is newly available or will be shortly. A full
-                                    description is coming soon!
-                                  </p>
-                                </Fragment>
-                              )
-                            )}
-                          </p>
-                        </a>
-                      </div>
-                    </InfoWindowF>
-                  )}
-                </Map>
+                        </InfoWindowF>
+                      )}
+                    </Map>
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      src={`/img/homepage/static_map.png`}
+                      width={'1000'}
+                      height={'1000'}
+                      className='max-sm:w-[1000px] lg:w-[1000px] blur-md'
+                      alt='Property Image'
+                    />
+                  </>
+                )}
               </div>
             </div>
             {!loadingListing ? (

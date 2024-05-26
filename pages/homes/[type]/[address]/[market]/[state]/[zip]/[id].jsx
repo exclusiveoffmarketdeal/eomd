@@ -12,6 +12,8 @@ import { MdKeyboardArrowLeft } from 'react-icons/md'
 import ApiClient from '@/utils/ApiClient'
 import BasicContainer from '@/components/Hardware/Containers/BasicContainer'
 
+//TODo property-details/id
+
 const Homes = () => {
   let similarPattern = `bg-[url('/img/pages/Homes/Pattern-Homes.png')]`
   const [loading, setLoading] = useState(false)

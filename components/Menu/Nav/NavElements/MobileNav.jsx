@@ -5,10 +5,20 @@ import LinkBtn from '@/components/Hardware/LinkBtn'
 import Link from 'next/link'
 import Image from 'next/image'
 import classNames from 'classnames'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useAuth } from '@/components/AuthProvider'
 
 const MobileNav = () => {
   const [navOpen, setNavOpen] = useState(false)
+  const { authToken } = useAuth()
+  const [firstName, setFirstName] = useState('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setFirstName(localStorage.getItem('firstName') || '')
+    }
+  }, [])
+
   return (
     <>
       <div className='block lg:hidden absolute'>
@@ -51,8 +61,17 @@ const MobileNav = () => {
               <Link href='/careers'>Careers</Link>
               <Link href='/resident'>Resident</Link>
               <Link href='/vendor'>Vendor</Link> */}
-              <Link href={'/login'}>Log In</Link>
-              <Link href={'/signup'}>Sign Up</Link>
+              {!authToken ? (
+                <>
+                  <Link href={'/login'}>Log In</Link>
+                  <Link href={'/signup'}>Sign Up</Link>
+                </>
+              ) : (
+                <>
+                  <p>Welcome,{firstName}</p>
+                  <Link href={'/logout'}>Log Out</Link>
+                </>
+              )}
               <span className='mt-2'>
                 <LinkBtn address={'/contacts'} bgColor={'bg-vb_blue-500'} bgColorHover={'hover:bg-vb_blue-600'}>
                   Help
