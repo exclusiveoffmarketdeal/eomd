@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Map from '@/components/Map/Map'
 import Autocomplete from '@/components/Map/Autocomplete'
 import ApiClient from '@/utils/ApiClient'
-import ImageSwiper from './house-for-rent/ImageSwiper'
+import ImageSwiper from '@/components/ImageSwiper'
 import MultiRangeSlider from '@/components/Map/MultiRangeSlider'
 import { useAuth } from '@/components/AuthProvider'
 

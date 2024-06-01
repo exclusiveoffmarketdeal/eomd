@@ -8,7 +8,7 @@ const Map = (props) => {
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY,
     libraries,
   })
-  console.log(process.env.NEXT_PUBLIC_GOOGLE_MAP_KEY)
+
   const renderMap = () => {
     const loadHandler = (map) => {
       setMap(map)

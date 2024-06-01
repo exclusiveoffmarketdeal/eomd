@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Map from '@/components/Map/Map'
 import Autocomplete from '@/components/Map/Autocomplete'
 import ApiClient from '@/utils/ApiClient'
-import ImageSwiper from '../house-for-rent/ImageSwiper'
+import ImageSwiper from '@/components/ImageSwiper'
 import MultiRangeSlider from '@/components/Map/MultiRangeSlider'
 
 const options = {
@@ -47,7 +47,7 @@ const FindHomes = () => {
   const [availableStatus, setAvailableStatus] = useState({})
   const [map, setMap] = useState(null)
   const [defaultCenter, setDefaultCenter] = useState(null)
-  const [centerLat, setCenterLat] = useState(47.651230)
+  const [centerLat, setCenterLat] = useState(47.65123)
   const [centerLng, setCenterLng] = useState(-122.2908099)
   const [zoom, setZoom] = useState(7)
   const [locs, setLocs] = useState([])
@@ -117,26 +117,24 @@ const FindHomes = () => {
   const handleChangeBaths = (event) => {
     setBaths(event.target.value)
   }
-  const handleChangeMinArea = (event) => { 
+  const handleChangeMinArea = (event) => {
     let newMinArea = parseInt(event.target.value)
-    if(maxArea == 0 || maxArea >= newMinArea){
-      setMinArea(newMinArea) 
-    }
-    else{
+    if (maxArea == 0 || maxArea >= newMinArea) {
+      setMinArea(newMinArea)
+    } else {
       setShowBoxInfo(true)
-      setMinArea(0) 
-    } 
+      setMinArea(0)
+    }
   }
-  const handleChangeMaxArea = (event) => { 
+  const handleChangeMaxArea = (event) => {
     let newMaxArea = parseInt(event.target.value)
-    if(minArea == 0 || minArea <= newMaxArea){
-      setMaxArea(newMaxArea) 
-    }
-    else{ 
+    if (minArea == 0 || minArea <= newMaxArea) {
+      setMaxArea(newMaxArea)
+    } else {
       setShowBoxInfo(true)
-      setMaxArea(0) 
-    } 
-  } 
+      setMaxArea(0)
+    }
+  }
   const handleToggleCloseBox = () => {
     setShowBoxInfo(false)
   }
@@ -248,7 +246,7 @@ const FindHomes = () => {
     setLoadingListing(false)
   }
 
-  const sortBy = async (newColumn, newOrder) => { 
+  const sortBy = async (newColumn, newOrder) => {
     await commonListing(`/find-homes/listing`, {
       lat: centerLat,
       lng: centerLng,
@@ -451,7 +449,7 @@ const FindHomes = () => {
               className='col-span-1 h-10 px-1 rounded-xl cursor-pointer'
               onChange={(e) => {
                 handleChangeMinArea(e)
-              }} 
+              }}
               value={minArea}
               defaultValue={minArea}
             >
@@ -503,13 +501,40 @@ const FindHomes = () => {
               <option value='7500'>7,500 sqft</option>
             </select>
             {showBoxInfo && (
-              <div style={{width: '100%', height: '100%',position: 'fixed',left: '0'}}>
-                <div style={{ zIndex: '999', opacity:4, width: '400px', border:'1px solid #f10', padding:'10px', borderRadius:'10px',backgroundColor: '#a25c7f', position: 'fixed', top: '50%', left: '50%',transform: 'translate(-50%, -50%)' }}>
-                  <p className='text-white'>Max area must be greater then min area</p>              
-                  <button onClick={handleToggleCloseBox} style={{ position: 'absolute', top: '-16px',  right: '-12px', background: '#ef0a0a',  borderRadius: '10px',    padding: '2px 8px 2px 8px',  color: 'white'}}>X</button>            
-                </div> 
+              <div style={{ width: '100%', height: '100%', position: 'fixed', left: '0' }}>
+                <div
+                  style={{
+                    zIndex: '999',
+                    opacity: 4,
+                    width: '400px',
+                    border: '1px solid #f10',
+                    padding: '10px',
+                    borderRadius: '10px',
+                    backgroundColor: '#a25c7f',
+                    position: 'fixed',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                  }}
+                >
+                  <p className='text-white'>Max area must be greater then min area</p>
+                  <button
+                    onClick={handleToggleCloseBox}
+                    style={{
+                      position: 'absolute',
+                      top: '-16px',
+                      right: '-12px',
+                      background: '#ef0a0a',
+                      borderRadius: '10px',
+                      padding: '2px 8px 2px 8px',
+                      color: 'white',
+                    }}
+                  >
+                    X
+                  </button>
+                </div>
               </div>
-             )}
+            )}
             <button
               type='submit'
               className='col-span-2 md:col-span-4 xl:col-span-1 3xl:col-span-2 4xl:col-span-1 flex justify-center items-center h-10 bg-vb_green-400 hover:bg-vb_green-500 text-2xl tracking-wider text-white font-extrabold px-8 py-3 rounded-xl transition-all duration-150 ease-in-out'
