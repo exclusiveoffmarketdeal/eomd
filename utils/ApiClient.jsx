@@ -13,7 +13,10 @@ async function getBearerToken() {
   }
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visitor/generateToken`, { method: 'GET', headers: { 'Content-Type': 'application/json' } })
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/visitor/generateToken`, {
+      method: 'GET',
+      headers: { 'Content-Type': 'application/json' },
+    })
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`)
@@ -23,6 +26,7 @@ async function getBearerToken() {
 
     const idToken = data.token // Get the token from the response data
     // Store the token in local storage
+    localStorage.deleteItem('visitorToken')
     localStorage.setItem('visitorToken', idToken)
     return idToken
   } catch (error) {
@@ -35,8 +39,7 @@ async function buildRequestOptions(method, payload = {}) {
   let bearerToken = await getBearerToken()
 
   let authToken = localStorage.getItem('authToken')
-  if(authToken !== null)
-  {
+  if (authToken !== null) {
     bearerToken = `${bearerToken} ${authToken}`
   }
 
