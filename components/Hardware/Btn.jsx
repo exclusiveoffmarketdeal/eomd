@@ -1,7 +1,5 @@
-import Link from 'next/link'
-
-const LinkBtn = ({
-  children,
+const Btn = ({
+  label,
   handleClick,
   btnType = '',
   formName = '',
@@ -32,13 +30,12 @@ const LinkBtn = ({
         className={` ${bgColor} ${bgColorHover} ${fontChoice} text-white ${paddingX} ${paddingY} rounded-lg ${shadowChoice} transition-all duration-150 ease-in-out`}
         onClick={handleClick}
         type={btnType}
-        form={formName}
         disabled={disabled}
       >
-        {children}
+        {label}
       </button>
     </>
   )
 }
 
-export default LinkBtn
+export default Btn

@@ -6,7 +6,7 @@ import { useState } from 'react'
 const EditCell = ({ row, table }) => {
   const [isDeleted, setIsDeleted] = useState(false)
   const meta = table.options.meta
-
+  // console.log(row, table)
   const fetchData = async (e) => {
     const elName = e?.target?.parentElement?.id ?? e.target.id
     console.log(row?.original?.id)
