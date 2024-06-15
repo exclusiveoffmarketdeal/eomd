@@ -26,7 +26,7 @@ async function getBearerToken() {
 
     const idToken = data.token // Get the token from the response data
     // Store the token in local storage
-    localStorage.deleteItem('visitorToken')
+    localStorage?.removeItem('visitorToken')
     localStorage.setItem('visitorToken', idToken)
     return idToken
   } catch (error) {

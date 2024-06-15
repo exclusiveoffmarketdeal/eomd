@@ -1,11 +1,23 @@
 import React, { useState } from 'react'
-
-import { createColumnHelper, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
+import EditCell from '@/components/PageSections/Admin/Datatable/EditCell'
+import {
+  createColumnHelper,
+  flexRender,
+  getCoreRowModel,
+  getPaginationRowModel,
+  getSortedRowModel,
+  useReactTable,
+} from '@tanstack/react-table'
 
 // Create columns without TypeScript type annotations
 const columnHelper = createColumnHelper()
 
 const columns = [
+  columnHelper.display({
+    id: 'edit',
+    header: 'Action',
+    cell: EditCell,
+  }),
   columnHelper.accessor((row) => row.address, {
     id: 'address',
     cell: (info) => <i>{info.getValue()}</i>,
@@ -76,14 +88,65 @@ const columns = [
 ]
 
 const PropertyTable = ({ properties }) => {
-  const [data, _setData] = useState(() => [...properties])
-  console.log(data, properties)
+  const [data, setData] = useState(() => [...properties])
+  const [validRows, setValidRows] = useState({})
+  const [editedRows, setEditedRows] = useState({})
+  const [isEditing, setIsEditing] = useState(false)
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [rowData, setRowData] = useState([])
+  const [editedData, setEditedData] = useState([])
+  const [sorting, setSorting] = useState([])
 
   const table = useReactTable({
     data,
     columns,
+    state: {
+      columnVisibility: { ID: false },
+      sorting,
+    },
     getCoreRowModel: getCoreRowModel(),
+    getPaginationRowModel: getPaginationRowModel(),
+    getSortedRowModel: getSortedRowModel(),
+    onSortingChange: setSorting,
+    autoResetAll: false,
+    meta: {
+      isEditing,
+      setIsEditing,
+      editedRows,
+      setEditedRows,
+      validRows,
+      setValidRows,
+      setShowEditModal,
+      setRowData,
+      revertData: (rowIndex, revert) => {
+        setEditedData((old) => {
+          if (revert) {
+            return old.map((row, index) => (index === rowIndex ? initialData[rowIndex] : row))
+          } else {
+            return old.map((row, index) => (index === rowIndex ? editedData[rowIndex] : row))
+          }
+        })
+      },
+      updateData: (rowIndex, columnId, value, isValid) => {
+        setEditedData((old) => {
+          const updatedRow = {
+            ...old[rowIndex],
+            [columnId]: value,
+          }
+          return [...old.slice(0, rowIndex), updatedRow, ...old.slice(rowIndex + 1)]
+        })
+        setValidRows((old) => ({
+          ...old,
+          [rowIndex]: { ...old[rowIndex], [columnId]: isValid },
+        }))
+      },
+    },
   })
+
+  const closeEditModal = (e) => {
+    setShowEditModal(false)
+    table.options.meta?.setIsEditing(false)
+  }
 
   return (
     <div className='p-4 bg-white shadow-md rounded-lg overflow-x-auto'>
@@ -114,6 +177,64 @@ const PropertyTable = ({ properties }) => {
           ))}
         </tbody>
       </table>
+      <div className='h-2' />
+      <div className='flex items-center gap-2'>
+        <button
+          className='border rounded p-1'
+          onClick={() => table.setPageIndex(0)}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {'<<'}
+        </button>
+        <button
+          className='border rounded p-1'
+          onClick={() => table.previousPage()}
+          disabled={!table.getCanPreviousPage()}
+        >
+          {'<'}
+        </button>
+        <button className='border rounded p-1' onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+          {'>'}
+        </button>
+        <button
+          className='border rounded p-1'
+          onClick={() => table.setPageIndex(table.getPageCount() - 1)}
+          disabled={!table.getCanNextPage()}
+        >
+          {'>>'}
+        </button>
+        <span className='flex items-center gap-1'>
+          <div>Page</div>
+          <strong>
+            {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}
+          </strong>
+        </span>
+        <span className='flex items-center gap-1'>
+          | Go to page:
+          <input
+            type='number'
+            defaultValue={table.getState().pagination.pageIndex + 1}
+            onChange={(e) => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0
+              table.setPageIndex(page)
+            }}
+            className='border p-1 rounded w-16'
+          />
+        </span>
+        <select
+          value={table.getState().pagination.pageSize}
+          onChange={(e) => {
+            table.setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 30, 40, 50].map((pageSize) => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div>{Object.keys(table.getRowModel().rowsById).length} Rows</div>
     </div>
   )
 }
